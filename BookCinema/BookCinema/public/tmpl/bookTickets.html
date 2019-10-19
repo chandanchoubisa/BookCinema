@@ -1,0 +1,47 @@
+<a ng-click="back()" class="btn btn-info pull-right" href="javascript:">Back</a>
+
+<div ng-show="currMovie">
+    <h3>{{currMovie.name}}
+    </h3>
+    <span data-ng-repeat="i in getCount(currMovie.rating) track by $index" class="glyphicon glyphicon-star"></span>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <form role="form" name="bookTickets" ng-submit="processForm()">
+                <div class="form-group">
+                    <label for="qty">Quantity</label>
+                    <input type="text" size="40" style="height: 40px" class="RoundShape" ng-model="formData.qty" name="qty" id="qty" ng-pattern="onlyNumbers" placeholder="Tickets Quantity" value="1" ng-model="qty" required>
+                    <span ng-hide="bookTickets.qty.$valid" class=" alert-danger">Please Enter a Valid Number</span>
+
+                </div>
+
+                <!--   <div class="form-group">
+                    <label for="date">Date</label>
+                    <select ng-model="formData.date" class="form-control" name="date" id="date" required>
+                        <option>Today</option>
+                        <option>Tomorow</option>
+                        <option>The Day After</option>
+                    </select>
+                </div>-->
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" style="margin: 25px" class="RoundShape" ng-model="formData.date" name="date" id="date" required>
+                </div>
+                <select style="border-radius: 70px;margin-left:20px  ">
+                        <option value="volvo">8:30 am</option>
+                        <option value="saab">12:30 pm</option>
+                        <option value="opel">4:30 pm</option>
+                        <option value="audi">8:30 pm</option>
+                      </select>
+                <button ng-disabled="!(bookTickets.qty.$valid)" type="submit" class="btn btn-default">Select Seats</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h4>Review</h4>
+            <label class="text-justify">
+                <img data-ng-src="{{currMovie.thumb}}" width="auto" class="bookThumb pull-left">{{currMovie.review}}
+            </label>
+        </div>
+    </div>
+</div>
