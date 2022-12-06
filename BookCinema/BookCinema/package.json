@@ -9,7 +9,7 @@
   "author": "Arvind",
   "license": "MIT",
   "devDependencies": {
-    "express": "^3.5.0"
+    "express": "^4.18.2"
   },
   "dependencies": {
     "angular-loading-bar": "^0.9.0",
